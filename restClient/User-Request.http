@@ -1,0 +1,230 @@
+###login Wrong User
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"ppeopsdfo",
+    "password":"drgedgdsr"
+
+}
+
+###login User With Wrong Password
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"DarkDid",
+    "password":"drgedgdsr"
+
+}
+
+###login User
+# @name loggedUser
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"DarkDid",
+    "password":"mot6"
+
+}
+
+###Get User
+GET http://localhost:8080/users/me
+Authorization: {{loggedUser.response.body.token}}
+
+
+###Post User
+POST http://localhost:8080/authentication/register/
+Content-Type: application/json
+
+{
+    "userName" : "fgjhsfgjh",
+    "password": "adj7",
+    "email": "gfdhgrfhgfhr@gmail.com",
+    "role": "ANT",
+    "name": "Ochon",
+    "surname": "Paul",
+    "address" : {
+        "postalCode" : "1170",
+        "commune" : "Loin",
+        "street" : "rue du balais",
+        "nbr" : "78",
+        "country" : "Belgique"
+    }
+}
+
+### login new user
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"fgjhsfgjh",
+    "password":"adj7"
+
+}
+
+###Post User with wrong role
+POST http://localhost:8080/authentication/register/
+Content-Type: application/json
+
+{
+    "userName" : "Paulo",
+    "password": "adj7",
+    "email": "paul.ochon@gmail.com",
+    "role": "CLINIQUE",
+    "name": "Ochon",
+    "surname": "Paul",
+    "address" : {
+        "postalCode" : "1170",
+        "commune" : "Loin",
+        "street" : "rue du balais",
+        "nbr" : "78",
+        "box" : "3",
+        "country" : "Belgique"
+    }
+    
+
+}
+
+
+###Post User with wrong email
+POST http://localhost:8080/authentication/register/
+Content-Type: application/json
+
+{
+    "userName" : "Paulo",
+    "password": "adj7",
+    "email": "LA CACA",
+    "role": "CLI",
+    "name": "Ochon",
+    "surname": "Paul",
+    "address" : {
+        "postalCode" : "1170",
+        "commune" : "Loin",
+        "street" : "rue du balais",
+        "nbr" : "78",
+        "country" : "Belgique"
+    }
+    
+}
+
+###Post user who request admin
+POST http://localhost:8080/authentication/register/
+Content-Type: application/json
+
+{
+    "userName" : "jesuisadmin",
+    "password": "admin123",
+    "email": "admin@gmail.com",
+    "role": "ADM",
+    "name": "adminounet",
+    "surname": "nounet",
+    "address" : {
+        "postalCode" : "1660",
+        "commune" : "Ouilabas",
+        "street" : "cetteRueLa",
+        "nbr" : "43",
+        "country" : "Belgique"
+    }
+}
+
+###login User
+# @name loggedAdmin
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"bert",
+    "password":"Jaune;10."
+
+}
+
+### PUT a new role
+PUT http://localhost:8080/users/validateRegister?roleRequested=ANT
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "userName" : "fgjhsfgjh"
+}
+
+### PUT refuse role request
+PUT http://localhost:8080/users/refuseRegister
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "userName" : "fgjhsfgjh"
+}
+
+###Post client
+POST http://localhost:8080/authentication/register/
+Content-Type: application/json
+
+{
+    "userName" : "jesuisclient",
+    "password": "client123",
+    "email": "client@gmail.com",
+    "role": "CLI",
+    "name": "clientnounet",
+    "surname": "nounetCli",
+    "address" : {
+        "postalCode" : "4637",
+        "commune" : "NonPlutotIci",
+        "street" : "CelleLaAussi",
+        "nbr" : "32",
+        "country" : "Belgique"
+    }
+}
+
+###login client
+# @name loggedClient
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"jesuisclient",
+    "password":"client123"
+
+}
+
+### PUT a new role without being an admin
+PUT http://localhost:8080/users/validateRegister?roleRequested=ADM
+Content-Type: application/json
+Authorization: {{loggedClient.response.body.token}}
+
+{
+    "userName" : "fgjhsfgjh"
+}
+
+### get users not validated
+GET http://localhost:8080/users/usersNotValidated
+Authorization: {{loggedAdmin.response.body.token}}
+
+### get furniture with an option of an user 
+GET http://localhost:8080/users/furnitureOption/65555
+Authorization: {{loggedClient.response.body.token}}
+
+### get user with his id
+GET http://localhost:8080/users/3
+Authorization: {{loggedAdmin.response.body.token}}
+
+### get furnitures sold by an user 
+GET http://localhost:8080/users/soldFurnitures/4
+Authorization: {{loggedClient.response.body.token}}
+### get users by research
+GET http://localhost:8080/users/research?word=tch
+Authorization: {{loggedAdmin.response.body.token}}
+
+### get users by research
+GET http://localhost:8080/users/research?word=4800
+Authorization: {{loggedAdmin.response.body.token}}
+
+### get furnitures by research
+GET http://localhost:8080/users/research?word=Secrétaire
+Authorization: {{loggedAdmin.response.body.token}}
+
+### get user's tags
+GET http://localhost:8080/users/tags/
+Authorization: {{loggedAdmin.response.body.token}}

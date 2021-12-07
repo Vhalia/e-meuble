@@ -1,0 +1,538 @@
+:root {
+    --main-bg: #5e5e5e;
+    --card-furniture: #929292;
+    --dark-grey: #2e2e2e;
+    --darker-grey: #1b1b1b;
+    --light-red : #c94848;
+    --dark-red :  #af3b3b;
+    --brown-yellow : #cc6600;
+    --light-blue : #00ccff;
+    --marine-blue : #336699;
+    --apple-green : #33cc33;
+    --dark-blue : #0040ff;
+    --dark-green : #006600;
+    --orange : #ff8000;
+    --light-green : #33ff77;
+    --purple : #993399;
+    --very-dark-red : #990000;
+}
+
+
+html *{
+    font-family: 'Montserrat', sans-serif;  
+}
+
+#main{
+    min-width: 100vh !important;
+    min-height: 75vh !important;
+    height: 100% !important;
+    width: 100% !important;
+    padding-bottom: 50px;
+}
+
+body {
+    background-color: var(--main-bg) !important;
+}
+
+#homeMessage{
+    color : white;
+    margin : 5%;
+}
+
+/******************************navbar******************************/
+
+#highNav{
+    background-color: var(--light-red);
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#lowNav{
+    background-color: var(--dark-red);
+    padding: 1%;
+    margin-bottom: 9%;
+    /* box-shadow: 0 8px 6px -2px black; */
+    -webkit-box-shadow: 0 10px 6px -6px #383838;
+     -moz-box-shadow: 0 10px 6px -6px #383838;
+          box-shadow: 0 10px 6px -6px #383838;
+}
+
+#btn-connection, #submitLogin{
+    height: 100%;
+    color: var(--light-red);
+    background-color: white;
+    border-color: white;
+}
+
+#btn-connection, #btn-register{
+    height: 50%;
+    border-radius: 20px;
+}
+
+#logo{
+    height: 100px;
+    width: 100px;
+}
+
+#divLogo{
+    display: flex;
+}
+
+#dropdown-menu {
+    height: 40px;
+}
+
+#dropdown-menu *{
+    color: var(--light-red);
+}
+
+#research-input, #submit-research {
+    box-shadow: none;
+    background-color: var(--dark-red);
+    border-bottom: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: black;
+}
+
+#research-input::placeholder{
+    color: black;
+}
+
+.ui-menu{
+    background-color: var(--light-red) !important;
+    color: white !important;
+}
+
+
+
+/******************************FormFrame******************************/
+
+#login-form, #newTypeForm, #confVisitForm, #register-form, #formPropFrame, #formEnMagFrame, #formEnVenFrame, #formAddPhoto, #formVenduFrame, #SaleWithClientFormFrame, #formEnCancelVisitRequest{
+    color: white;
+    background-color: var(--light-red);
+    padding: 5%;
+    margin: 7%;
+    border : 10px solid white;
+    border-radius:10px 100px / 120px;
+
+}
+
+/******************************login******************************/
+
+#nomLogin{
+    margin-left: 25%;
+}
+
+/******************************register******************************/
+.titleFormRegister{
+    background-color: white;
+    color: var(--light-red);
+    padding: 3.2%;
+    padding-bottom: 4.2%;
+    padding-top: 4.2%;
+    border-radius: 50%;
+}
+
+.other{
+    opacity: 0.33;
+}
+
+.flexTitle{
+    display: flex;
+    justify-content: center;    
+}
+
+.registerInput{
+    border : none !important;
+    width: 100%;
+    background-color: var(--light-red) !important;
+    border-bottom: 2px solid white !important;
+}
+
+/*****************************furnitures*****************************/
+#furnitureStateHome {
+    left : 0px;
+    top : 0px;
+}
+
+#furnitures {
+    margin-top: 5%;
+}
+
+#furnitures .card {
+    width: 100% !important;
+    margin: 0 !important;
+    background-color: var(--main-bg) !important;
+    border: none !important;
+}
+
+#furnitures .container-card{
+    padding: 0 !important;
+    width: 15% !important;
+    margin-left: 4% !important;
+}
+
+#furnitures .carousel-item{
+    margin-left: 10% !important;
+}
+
+#furnitures .container-card .card-body {
+    padding: 0px !important;
+}
+
+#furnitures .card-text {
+    color: white;
+    text-align: center;
+}
+
+#furniture-state-badge{
+    padding-top: 0.5cm;
+    padding-bottom: 0.5cm;
+    padding-left: 1cm;
+    padding-right: 1cm;
+    font-size: 1em;
+    color: white !important;
+}
+
+.badge-bg-default{
+    background-color: white;
+}
+
+.badge-bg-brownyellow{
+    background-color: var(--brown-yellow);
+}
+
+.badge-bg-red{
+    background-color: red;
+}
+
+.badge-bg-lightblue{
+    background-color: var(--light-blue);
+}
+
+.badge-bg-marineblue{
+    background-color: var(--marine-blue);
+}
+
+.badge-bg-green{
+    background-color: var(--apple-green);
+}
+
+.badge-bg-darkblue{
+    background-color: var(--dark-blue);
+}
+
+.badge-bg-darkgreen{
+    background-color: var(--dark-green);
+}
+
+.badge-bg-orange{
+    background-color: var(--orange);
+}
+
+.badge-bg-lightgreen{
+    background-color: var(--light-green);
+}
+
+.badge-bg-purple{
+    background-color: var(--purple);
+}
+
+.badge-bg-darkred{
+    background-color: var(--very-dark-red);
+}
+
+.list-group{
+    width: 10cm;
+}
+
+.list-group-item{
+    background: transparent !important;
+    color: #e9ecef;
+    border-top-color: #e9ecef !important;
+    border-left-color: #e9ecef !important;
+    border-right-color: #e9ecef !important;
+    border-bottom-color: #e9ecef !important;
+}
+
+/*****************************furniture*****************************/
+
+#furnitureInfo {
+    margin-top: 5%;
+}
+
+#image-furniture {
+    object-fit: cover;
+    width: 300px;
+    height: 280px;
+    margin-left: 16%;
+}
+
+#furniture-state-badge {
+    width: 200px;
+}
+
+#furniture-content {
+    justify-content: center;
+}
+
+.carousel-indicators {
+    color: var(--dark-red);
+}
+
+.img-fluid {
+    background-color: var(--main-bg) !important;
+    border: none !important;
+}
+
+#research-inputOnSaleForm{
+    width: 25%;
+    margin-right: 2%;
+}
+#submit-researchClient{
+    width: 15%;
+}
+
+#researchSale{
+    display: flex;
+}
+
+.furniture-buttons{
+    position: absolute !important;
+}
+
+.btn-scrollable{
+    font-size: 0.75em !important;
+    text-align: justify;
+}
+
+.heart-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--very-dark-red);
+}
+
+/*****************************admin*****************************/
+.table-dark {
+    background-color: var(--dark-grey) !important;  
+}
+
+.table-dark th {
+    background-color: var(--darker-grey) !important;  
+}
+
+.table td, .table th{
+    border: none !important;
+}
+
+.table tr {
+    cursor: pointer;
+}
+
+/*****************************bootstrap*****************************/
+
+.background-dark {
+    background-color: var(--dark-grey) !important;
+    color: white !important;
+}
+
+.btn-primary {
+    color: var(--light-red) !important;
+    background-color: white !important;
+    border-color: white !important;
+}
+
+.btn-primary:hover {
+    color: var(--light-red) !important;
+    background-color: rgb(207, 207, 207) !important;
+    border-color: rgb(207, 207, 207) !important;
+}
+
+.btn-secondary {
+    background-color: var(--dark-red) !important;
+    color: white !important;
+    border-color: white !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--very-dark-red) !important;
+}
+
+.btn-outline-danger {
+    border-color: transparent !important;
+}
+
+.btn-outline-danger:hover {
+    background-color: transparent !important;
+}
+
+/*****************************profile*****************************/
+
+hr {
+    border-top: 2px solid white !important;
+}
+
+#profil-info h1, #newTypeForm, #profil-furnitures-option h1, #profil-bought-furnitures h1, #profil-sold-furnitures h1, #viewVisitRequest h1, #headerVisitRequest h1{
+    color: var(--light-red);
+}
+
+.hr-underline-title {
+    border-color: var(--light-red) !important;
+}
+
+#bg-card-furniture {
+    background-color: var(--card-furniture);
+}
+
+#bg-card-furniture p {
+    min-height: 50px;
+    width: 150px;
+}
+
+#btn-cancel-option {
+    position: absolute;
+}
+
+.sold-bought-furnitures-title {
+    margin-left: 10%;
+    color: var(--light-red);
+}
+
+#mapProfil {
+    width: 700px;
+    height: 400px;
+}
+
+#visitsTab{
+    margin-top: 15%;
+}
+
+.visit-title {
+    margin-left: 42%;
+    color: var(--light-red);
+}
+
+/***************************research********************/
+
+#resultSearchSent{
+    margin: 2%;
+}
+
+#filtrerResearch{
+    color: white;
+    margin-left: 12%;
+}
+
+#resultSearchSent{
+    color: white;
+}
+
+#validateFilter{
+    margin-left: 1%;
+}
+
+/***************************filter********************/
+
+.radio-dropdown {
+    width: 200px;
+    border: 1px solid #aaa;
+    padding: 10px;
+    position: relative;
+    margin: 0 auto;
+    background-color: white;
+    user-select: none;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* Display CSS arrow to the right of the dropdown text */
+.radio-dropdown:after {
+    content:'';
+    height: 0;
+    position: absolute;
+    width: 0;
+    border: 6px solid transparent;
+    border-top-color: #000;
+    top: 50%;
+    right: 10px;
+    margin-top: -3px;
+}
+
+/* Reverse the CSS arrow when the dropdown is active */
+.radio-dropdown.is-active:after {
+    border-bottom-color: #000;
+    border-top-color: #fff;
+    margin-top: -9px;
+}
+
+.radio-dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%; /* align the dropdown right below the dropdown text */
+    border: inherit;
+    border-top: none;
+    left: -1px; /* align the dropdown to the left */
+    right: -1px; /* align the dropdown to the right */
+    opacity: 0; /* hide the dropdown */
+   
+    transition: opacity 0.4s ease-in-out;
+    height: 100px;
+    overflow: scroll;
+    overflow-x: hidden;
+    pointer-events: none; /* avoid mouse click events inside the dropdown */
+}
+.is-active .radio-dropdown-list {
+    opacity: 1; /* display the dropdown */
+    pointer-events: auto; /* make sure that the user still can select checkboxes */
+}
+
+.radio-dropdown-list li label {
+    display: block;
+    border-bottom: 1px solid silver;
+    padding: 10px;
+    transition: all 0.2s ease-out;
+    background-color: white;
+    margin-bottom: 0;
+}
+
+.radio-dropdown-list li label:hover {
+    background-color: #555;
+    color: white;
+}
+#filter-form{
+    display: flex;
+    margin-left: 2%;
+    margin-right: 0;
+}
+#lowNav{
+    display: flex;
+}
+#research-form{
+    width: 300px;
+}
+
+.input-price{
+    display: inline;
+    width: 60px !important;
+    margin-right: 2%; 
+    margin-left: 2%;
+}
+
+#dropdownType, #submitFilter{
+    height: 80%;
+    margin-left: 4%;
+}
+
+#blocInputPrice{
+    display: flex;
+    margin-right: 2%; 
+    margin-left: 2%;
+}
+
+
+

@@ -1,0 +1,52 @@
+###login User
+# @name loggedAdmin
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"bert",
+    "password":"Jaune;10."
+
+}
+
+### get all visits
+GET http://localhost:8080/visits/
+Authorization: {{loggedAdmin.response.body.token}}
+
+### get visit 1
+GET http://localhost:8080/visits/1
+
+###confirm a visit
+POST http://localhost:8080/visits/confirm
+
+{
+    "id":"4",
+    "state":"DEM",
+    "visitDateTime": "25-03-2021 10:00:00"
+}
+
+###login User
+# @name loggedUser
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"Caro",
+    "password":"mdpusr.2"
+
+}
+
+###cancel a visit
+PUT http://localhost:8080/visits/cancelVisit/
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "cancellationNote":"le meuble est trop endommagé",
+    "id":"1",
+    "state":"DEM"
+}
+
+###get visits of a user
+GET http://localhost:8080/visits/getVisits/4
+Authorization: {{loggedUser.response.body.token}}

@@ -1,0 +1,222 @@
+###login User
+# @name loggedAdmin
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"bert",
+    "password":"Jaune;10."
+
+}
+
+###login User
+# @name loggedUser
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"Caro",
+    "password":"mdpusr.2"
+
+}
+
+###update state to ENMAG for id 2
+POST http://localhost:8080/furnitures/fixPurchasePrice/?nextState=ENMAG
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "purchasePrice":"140",
+    "id":"2",
+    "dateCarryFromClient": "25-03-2021"
+
+}
+
+###update state to ENMAG for id 1
+POST http://localhost:8080/furnitures/fixPurchasePrice/?nextState=ENMAG
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "purchasePrice":"140",
+    "id":"1",
+    "dateCarryFromClient": "25-03-2021"
+
+}
+
+###update state to ENMAG for id 2 unfunctional if first test throws before  
+POST http://localhost:8080/furnitures/fixPurchasePrice/?nextState=ENMAG
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "purchasePrice":"140",
+    "id":"2",
+    "dateCarryFromClient": "25-03-2021"
+
+}
+
+###update state to ENRES for id 1
+POST http://localhost:8080/furnitures/fixPurchasePrice/?nextState=ENRES
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "purchasePrice":"10.2",
+    "id":"1",
+    "dateCarryFromClient": "25-03-2021"
+
+}
+###update state to ENVEN for id 1
+POST http://localhost:8080/furnitures/onSale/?nextState=ENVEN
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "sellPrice":"200",
+    "specialPrice":"100",
+    "id":"1"
+
+}
+###update state to ENMAG for id 1
+POST http://localhost:8080/furnitures/carryToStore/1
+Authorization: {{loggedAdmin.response.body.token}}
+
+### remove a furniture from sale
+POST http://localhost:8080/furnitures/withdrawalFromSale/3
+Authorization: {{loggedAdmin.response.body.token}}
+
+###update state to ENOPT for id 1
+POST http://localhost:8080/furnitures/createOption
+Content-Type: application/json
+Authorization: {{loggedUser.response.body.token}}
+
+{
+    "furnitureId":"1",
+    "duration":"5",
+    "isCancel":"false",
+    "daysLeft":"5"
+}
+
+###update state to ENVEN for id 1
+PUT http://localhost:8080/furnitures/removeOption/1
+Content-Type: application/json
+Authorization: {{loggedUser.response.body.token}}
+
+###update state to ENOPT for id 1 for second time
+POST http://localhost:8080/furnitures/createOption
+Content-Type: application/json
+Authorization: {{loggedUser.response.body.token}}
+
+{
+    "furnitureId":"1",
+    "duration":"2",
+    "isCancel":"true",
+    "daysLeft":"2"
+}
+
+###login User
+# @name loggedUser
+POST http://localhost:8080/authentication/login/
+Content-Type: application/json
+
+{
+    "userName":"bert",
+    "password":"Jaune;10."
+
+}
+
+###get furniture with the id 1
+GET http://localhost:8080/furnitures/1
+Authorization: {{loggedUser.response.body.token}}
+
+###get furniture with the id 3
+GET http://localhost:8080/furnitures/3
+Authorization: {{loggedUser.response.body.token}}
+
+###get an option
+GET http://localhost:8080/furnitures/getOption/1/1
+Authorization: {{loggedUser.response.body.token}}
+
+###get an option
+GET http://localhost:8080/furnitures/getActualOption/1
+Authorization: {{loggedUser.response.body.token}}
+
+### get all furnitures
+GET http://localhost:8080/furnitures/
+
+
+### get filtred furnitures
+GET http://localhost:8080/furnitures/FiltredFurnitures/1/400/6
+Authorization: {{loggedUser.response.body.token}}
+### get furnitures by research
+GET http://localhost:8080/furnitures/research?word=Secrétaire
+Authorization: {{loggedUser.response.body.token}}
+
+### get furniture's tags
+GET http://localhost:8080/furnitures/tags/
+Authorization: {{loggedUser.response.body.token}}
+
+### upload image for furniture 5
+POST http://localhost:8080/furnitures/addPhoto/5
+Content-Type: multipart/form-data; boundary=separateur
+Authorization: {{loggedAdmin.response.body.token}}
+
+--separateur
+Content-Disposition: form-data; name="text"
+
+title
+--separateur
+Content-Disposition: form-data; name="file"; filename="imageForTests.png"
+Content-Type: image/png
+
+< ./1.png
+--separateur--
+
+### get image of furniture 1
+GET http://localhost:8080/furnitures/getImage/1
+
+### post send a sale to the back
+POST http://localhost:8080/furnitures/sellFurniture/
+Content-Type: application/json
+Authorization: {{loggedUser.response.body.token}}
+
+{
+    "id":"1",
+    "state":"ENVEN",
+    "specialPrice":"-1",
+    "purchaser": {
+        "id" : "4",
+        "role" : "CLI"
+    }
+}
+
+### post send a sale to the back
+POST http://localhost:8080/furnitures/sellFurniture/
+Content-Type: application/json
+Authorization: {{loggedUser.response.body.token}}
+
+{
+    "id":"2",
+    "state":"ENVEN",
+    "specialPrice":"-1"
+}
+
+### post send a sale to the back
+POST http://localhost:8080/furnitures/notSuitable/
+Content-Type: application/json
+Authorization: {{loggedAdmin.response.body.token}}
+
+{
+    "id":"2",
+    "state":"PROPO"
+}
+
+### post send a new type
+POST http://localhost:8080/furnitures/addType/
+Content-Type: application/json
+Authorization: {{loggedUser.response.body.token}}
+
+petit bureau
+
+
